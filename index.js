@@ -92,9 +92,13 @@ const handleRequest = async (request) => {
         const refer = html.match(/\$refer\s+: "(.+?)"/i);
         if (short && refer) {
             return render(`
-<div class="mdui-typo mdui-text-center">
-    <div class="mdui-typo-headline">缩短结果：</div><a class="mdui-typo-headline" href="${short[0]}">${short[0]}</a>
-</div><a href="/">
+<div class="mdui-panel-item mdui-typo mdui-panel-item-open">
+    <div class="mdui-panel-item-header">缩短结果：</div>
+    <div class="mdui-panel-item-body">
+        <a class="mdui-typo-headline" href="${short[0]}">${short[0]}</a>
+    </div>
+</div>
+<a href="/">
     <button class="mdui-fab mdui-fab-fixed mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button></a>
 `);
         }
